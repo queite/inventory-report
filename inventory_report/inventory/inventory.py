@@ -34,7 +34,6 @@ class Inventory:
             dict_list = Inventory.import_json(path)
         if path.endswith("xml"):
             dict_list = Inventory.import_xml(path)
-        print(dict_list)
         return dict_list
 
     def import_data(path: str, type: str):
