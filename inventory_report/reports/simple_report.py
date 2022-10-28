@@ -3,15 +3,15 @@ from typing import Counter
 
 
 class SimpleReport:
-    def fabricacao_mais_antiga(list_dict):
-        ordenar = sorted(list_dict, key=lambda row: row["data_de_fabricacao"])
+    def oldest_manufacture(dict_list):
+        ordenar = sorted(dict_list, key=lambda row: row["data_de_fabricacao"])
         return ordenar[0]["data_de_fabricacao"]
 
-    def validade_mais_proxima(list_dict):
+    def closest_expiration(dict_list):
         curr_data = datetime.today().date()
         no_expired_products = [
             product
-            for product in list_dict
+            for product in dict_list
             if product["data_de_validade"] > str(curr_data)
         ]
 
@@ -20,17 +20,17 @@ class SimpleReport:
         )
         return ordenar[0]["data_de_validade"]
 
-    def empresa_mais_produtos(list_dict):
-        company_names = [name["nome_da_empresa"] for name in list_dict]
+    def more_products_company(dict_list):
+        company_names = [name["nome_da_empresa"] for name in dict_list]
         counter = Counter(company_names)
         return max(counter, key=counter.get)
 
-    def generate(list_dict):
-        fabricacao_mais_antiga = SimpleReport.fabricacao_mais_antiga(list_dict)
-        validade_mais_proxima = SimpleReport.validade_mais_proxima(list_dict)
-        empresa_mais_produtos = SimpleReport.empresa_mais_produtos(list_dict)
+    def generate(dict_list):
+        oldest_manufacture = SimpleReport.oldest_manufacture(dict_list)
+        closest_expiration = SimpleReport.closest_expiration(dict_list)
+        more_products_company = SimpleReport.more_products_company(dict_list)
         return (
-            f"Data de fabricação mais antiga: {fabricacao_mais_antiga}\n"
-            f"Data de validade mais próxima: {validade_mais_proxima}\n"
-            f"Empresa com mais produtos: {empresa_mais_produtos}"
+            f"Data de fabricação mais antiga: {oldest_manufacture}\n"
+            f"Data de validade mais próxima: {closest_expiration}\n"
+            f"Empresa com mais produtos: {more_products_company}"
         )
