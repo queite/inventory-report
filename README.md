@@ -40,6 +40,52 @@
 <br>
 
 ---
+
+## ⚙️Como rodar |  How to run:
+<br>
+
+Clone o repositório:
+```
+git clone git@github.com:queite/inventory-report.git
+```
+Entre na pasta raiz:
+```
+cd inventory-report
+```
+Crie o ambiente virtual:
+```
+python3 -m venv .venv && source .venv/bin/activate
+```
+Instale as dependências:
+```
+python3 -m pip install -r dev-requirements.txt
+```
+No terminal chame oo comando inventory_report passando seus argumentos:
+```
+inventory_report argumento1 argumento2
+```
+* argumento1 deve receber o caminho de um arquivo a ser importado. O arquivo pode ser um csv, json ou xml.
+
+* argumento2 pode receber duas strings: simples ou completo, cada uma gerando o respectivo relatório. <br>
+Ex.: `inventory_report inventory_report.data.inventory.csv simples`
+
+Outra opção é invocar o comando assim:
+```
+python3 -m inventory_report.main argumento1 argumento2
+```
+
+<!-- Download the code:
+```
+git clone git@github.com:queite/inventory-report.git
+```
+Enter the root folder:
+```
+cd inventory-repor 
+Install dependencies:
+```
+python3 -m pip install -r dev-requirements.txt
+``` -->
+---
 PT<br>
 Projeto desenvolvido durante o módulo de ciências da computação na [Trybe](https://www.betrybe.com/).<br/>
 Todos os projetos da [Trybe](https://www.betrybe.com/) usam `linters`, `Git` and `GitHub`.<br/>
